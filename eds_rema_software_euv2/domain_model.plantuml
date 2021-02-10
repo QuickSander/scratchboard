@@ -1,0 +1,41 @@
+@startuml
+class Window {
+  + RMCSX x_size
+  + RMCSX x_centre
+  + RMCSY y_size
+  + RMCSY y_centre
+}
+
+class BladePosition {
+  + double position
+}
+
+Client --> ScanParameters : specifies >
+Client --> StepParameters : specifies >
+ScanParameters *--> Frame
+StepParameters *--> Frame
+
+Frame *--> Window
+note right of Frame
+   Frame constructable by window or
+   Coordinates in:
+   WMCSe (Wafer Level), or
+   RMCS (Reticle Level) coordinates.
+
+   Upon construction converts to the internal
+   ReMa native type: RMCSX and RMCSY.
+end note
+
+Frame *--> “0..1” BlackBorder : might contain >
+note top of BlackBorder
+   Depending on the client’s
+   request, the ReMa driver
+   includes a black border or not
+end note
+
+Frame --> BladePosition : converted to >
+BladePosition --> Blade : applied to >
+BladePosition --> BalanceMass : influences > 
+
+
+@enduml
