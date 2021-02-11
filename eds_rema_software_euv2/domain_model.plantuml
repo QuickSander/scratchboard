@@ -1,9 +1,9 @@
 @startuml
 class Rectangle {
-  + RMCSX x_size
-  + RMCSX x_centre
-  + RMCSY y_size
-  + RMCSY y_centre
+  + int x_size
+  + int x_centre
+  + int y_size
+  + int y_centre
 }
 
 class SomePosition {
