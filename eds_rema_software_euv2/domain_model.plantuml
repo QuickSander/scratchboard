@@ -6,7 +6,7 @@ class Window {
   + RMCSY y_centre
 }
 
-class BladePosition {
+class SomePosition {
   + double position
 }
 
@@ -16,26 +16,12 @@ ScanParameters *--> Frame
 StepParameters *--> Frame
 
 Frame *--> Window
-note right of Frame
-   Frame constructable by window or
-   Coordinates in:
-   WMCSe (Wafer Level), or
-   RMCS (Reticle Level) coordinates.
 
-   Upon construction converts to the internal
-   ReMa native type: RMCSX and RMCSY.
-end note
+Frame *--> “0..1” Somehting : might contain >
 
-Frame *--> “0..1” BlackBorder : might contain >
-note top of BlackBorder
-   Depending on the client’s
-   request, the ReMa driver
-   includes a black border or not
-end note
-
-Frame --> BladePosition : converted to >
-BladePosition --> Blade : applied to >
-BladePosition --> BalanceMass : influences > 
+Frame --> SomePosition : converted to >
+SomePosition --> SomePeripheral : applied to >
+SomePosition --> SomeBalanceMass : influences > 
 
 
 @enduml
