@@ -1,5 +1,5 @@
 @startuml
-class Window {
+class Rectangle {
   + RMCSX x_size
   + RMCSX x_centre
   + RMCSY y_size
@@ -15,9 +15,9 @@ Client --> StepParameters : specifies >
 ScanParameters *--> Frame
 StepParameters *--> Frame
 
-Frame *--> Window
+Frame *--> Rectangle
 
-Frame *--> “0..1” Somehting : might contain >
+Frame *--> “0..1” Something : might contain >
 
 Frame --> SomePosition : converted to >
 SomePosition --> SomePeripheral : applied to >
